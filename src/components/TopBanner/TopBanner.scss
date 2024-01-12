@@ -17,6 +17,7 @@
     font-weight: 700;
     justify-content: center;
     line-height: 20px;
+    margin-left: 31px;
     text-align: right;
     white-space: nowrap;
 
@@ -29,8 +30,17 @@
     font-weight: 400;
   }
 
+  &-imageContainer {
+    height: 54px;
+    position: relative;
+    width: 159px;
+  }
+
   &-image {
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    right: 0;
   }
 
   &-icon {
@@ -72,6 +82,10 @@
 
 @media (min-width: 768px) {
   .topBanner {
+    &-imageContainer {
+      width: 184px;
+    }
+
     &-text {
       justify-content: center;
     }
@@ -88,8 +102,10 @@
 
 @media (min-width: 1024px) {
   .topBanner {
-    &-text {
-      // justify-content: center;
+    padding-left: 8px;
+
+    &-imageContainer {
+      width: 212px;
     }
 
     .mobile, .tablet {

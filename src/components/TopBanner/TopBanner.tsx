@@ -8,7 +8,9 @@ import './TopBanner.scss';
 function TopBanner({ onClose = () => {}}: { onClose?: () => void}) {
   return (
     <div className="topBanner">
-      <img src={giftImg} alt="gift" className="topBanner-image"/>
+      <div className="topBanner-imageContainer">
+        <img src={giftImg} alt="gift" className="topBanner-image"/>
+      </div>
       <span className="topBanner-text mobile">
         Black Friday,&nbsp;<span className="topBanner-text--gold">10%OFF</span>
       </span>

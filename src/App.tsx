@@ -17,10 +17,9 @@ function App() {
         return;
       }
 
-      const threshold = 100;
+      const bannerThreshold = 100;
 
-      console.log(window.scrollY);
-      if (window.scrollY > threshold) {
+      if (window.scrollY > bannerThreshold) {
         setShowMainBanner(true);
         const mainBannerElement = document.getElementsByClassName("mainBanner")[0] as HTMLElement;
 
@@ -32,10 +31,8 @@ function App() {
       }
     };
 
-    // Attach the scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

@@ -71,6 +71,7 @@
 @media (min-width: 768px) {
   .mainBanner {
     background: url("../../assets/images/background.png") no-repeat;
+    background-size: cover;
     border-radius: 16px;
     max-width: 600px;
     overflow: hidden;

@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       {!topBannerClosed && <TopBanner onClose={closeTopBanner}/>}
-      {!bannerClosed && <MainBanner isVisible={showMainBanner} onClose={closeBanner}/>}
+      {!topBannerClosed &&!bannerClosed && <MainBanner isVisible={showMainBanner} onClose={closeBanner}/>}
     </div>
   );
 }

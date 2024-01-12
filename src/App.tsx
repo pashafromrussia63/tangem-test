@@ -16,21 +16,17 @@ function App() {
       if (bannerClosed) { 
         return;
       }
-
       const bannerThreshold = 100;
 
       if (window.scrollY > bannerThreshold) {
         setShowMainBanner(true);
         const mainBannerElement = document.getElementsByClassName("mainBanner")[0] as HTMLElement;
-
         if (mainBannerElement) {
           mainBannerElement.classList.add('mainBanner--visible');
         }
-
         window.removeEventListener('scroll', handleScroll);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -44,7 +40,7 @@ function App() {
   }
 
   const closeTopBanner = () => {
-    localStorage.setItem('topBannerClosed', 'true');
+    localStorage.setItem('bannerClosed', 'true');
     setTopBannerClosed(true);
   }
 

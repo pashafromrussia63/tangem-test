@@ -1,0 +1,103 @@
+.topBanner {
+  align-items: center;
+  display: flex;
+  background-color: #101010;
+  height: 54px;
+  justify-content: flex-end;
+  margin-top: 54px;
+  overflow: hidden;
+  padding: 12px 24px 12px 0;
+  
+  &-text {
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 20px;
+    text-align: right;
+    white-space: nowrap;
+
+    &--gold {
+      color: #D7A830;
+    }
+  }
+
+  &-date {
+    font-weight: 400;
+  }
+
+  &-image {
+    object-fit: cover;
+  }
+
+  &-icon {
+    margin-left: 18px;
+    padding: 0 10px;
+    min-width: 30px
+  }
+
+  .tablet, .desktop {
+    display: none;
+  }
+
+  &-button {
+    border: none;
+    border-radius: 100px;
+    color: #000000;
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  &-bullet {
+    margin: 0 12px;
+  }
+
+  &-code {
+    align-items: center;
+    display: flex;
+    font-weight: 400;
+    &--gold {
+      color: #D7A830;
+      font-weight: 700;
+    }
+  }
+
+  &-close {
+    margin-left: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .topBanner {
+    &-text {
+      justify-content: center;
+    }
+
+    .mobile, .desktop {
+      display: none;
+    }
+
+    .tablet {
+      display: flex;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .topBanner {
+    &-text {
+      // justify-content: center;
+    }
+
+    .mobile, .tablet {
+      display: none;
+    }
+
+    .desktop {
+      display: flex;
+    }
+  }
+}

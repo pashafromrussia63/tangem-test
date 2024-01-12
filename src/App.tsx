@@ -1,24 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import TopBanner from './components/TopBanner/TopBanner';
+import MainBanner from './components/MainBanner/MainBanner';
 import './App.css';
 
 function App() {
+  const [showMainBanner, setShowMainBanner] = useState(false);
+  const [bannerClosed, setBannerClosed] = useState(false);
+  const [topBannerClosed, setTopBannerClosed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isBannerClosed = localStorage.getItem('bannerClosed');
+      setBannerClosed(isBannerClosed === 'true');
+
+      if (bannerClosed) { 
+        return;
+      }
+
+      const threshold = 100;
+
+      console.log(window.scrollY);
+      if (window.scrollY > threshold) {
+        setShowMainBanner(true);
+        const mainBannerElement = document.getElementsByClassName("mainBanner")[0] as HTMLElement;
+
+        if (mainBannerElement) {
+          mainBannerElement.classList.add('mainBanner--visible');
+        }
+
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const closeBanner = () => {
+    localStorage.setItem('bannerClosed', 'true');
+    setBannerClosed(true);
+  }
+
+  const closeTopBanner = () => {
+    localStorage.setItem('topBannerClosed', 'true');
+    setTopBannerClosed(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!topBannerClosed && <TopBanner onClose={closeTopBanner}/>}
+      {!bannerClosed && <MainBanner isVisible={showMainBanner} onClose={closeBanner}/>}
     </div>
   );
 }

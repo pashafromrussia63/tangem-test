@@ -17,9 +17,14 @@
   }
 
   &-close {
+    cursor: pointer;
     position: absolute;
     top: 15px;
     right: 15px;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &-title {
@@ -58,9 +63,14 @@
     border: none;
     border-radius: 14px;
     color: #FFFFFF;
+    cursor: pointer;
     font-size: 16px;
     font-weight: 500;
     padding: 12px 24px;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .tablet, .desktop {

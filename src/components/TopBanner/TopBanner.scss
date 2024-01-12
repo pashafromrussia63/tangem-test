@@ -57,8 +57,13 @@
     border: none;
     border-radius: 100px;
     color: #000000;
+    cursor: pointer;
     font-size: 16px;
     padding: 12px 24px;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &-bullet {
@@ -76,7 +81,12 @@
   }
 
   &-close {
+    cursor: pointer;
     margin-left: 14px;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
